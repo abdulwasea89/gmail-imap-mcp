@@ -455,6 +455,92 @@ The Gmail IMAP MCP server can be integrated with AI assistants that support the 
 
 5. **Email Summarization**: The assistant can summarize emails using the `summarize-emails` prompt.
 
+## Connecting with AI Assistants
+
+### Claude Desktop
+
+To connect the Gmail IMAP MCP server with Claude Desktop:
+
+1. Start the Gmail IMAP MCP server:
+   ```bash
+   python -m gmail_imap_mcp.server
+   ```
+
+2. Open Claude Desktop and navigate to Settings (gear icon)
+
+3. Scroll down to the "Advanced" section and click on "Edit MCP Configuration"
+
+4. Add the Gmail IMAP MCP server configuration:
+   ```json
+   {
+     "servers": [
+       {
+         "name": "Gmail IMAP",
+         "url": "http://localhost:8080",
+         "tools": [
+           "list-emails",
+           "get-email",
+           "search-emails",
+           "send-email",
+           "list-mailboxes",
+           "create-label",
+           "move-email",
+           "mark-as-read",
+           "download-attachment"
+         ]
+       }
+     ]
+   }
+   ```
+
+5. Click "Save" and restart Claude Desktop
+
+6. You can now ask Claude to interact with your Gmail account, for example:
+   - "Show me my unread emails"
+   - "Send an email to [recipient] about [subject]"
+   - "Create a new label called 'Important'"
+   - "Move the email from [sender] to the 'Important' label"
+
+### Windsurf IDE
+
+To connect the Gmail IMAP MCP server with Windsurf IDE:
+
+1. Start the Gmail IMAP MCP server:
+   ```bash
+   python -m gmail_imap_mcp.server
+   ```
+
+2. Open Windsurf IDE and navigate to Settings
+
+3. Find the "AI Flow" or "MCP Configuration" section
+
+4. Add the Gmail IMAP MCP server configuration:
+   ```json
+   {
+     "servers": [
+       {
+         "name": "Gmail IMAP",
+         "url": "http://localhost:8080",
+         "tools": [
+           "list-emails",
+           "get-email",
+           "search-emails",
+           "send-email",
+           "list-mailboxes",
+           "create-label",
+           "move-email",
+           "mark-as-read",
+           "download-attachment"
+         ]
+       }
+     ]
+   }
+   ```
+
+5. Save the settings and restart Windsurf if necessary
+
+6. You can now ask Cascade (Windsurf's AI assistant) to interact with your Gmail account using the same commands as with Claude Desktop
+
 ## Common Use Cases
 
 ### 1. Email Triage
